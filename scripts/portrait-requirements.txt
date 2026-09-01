@@ -1,0 +1,6 @@
+# Only needed locally when you regenerate the ASCII portrait from a new photo.
+# The daily GitHub Actions workflow does NOT install these.
+pillow
+numpy
+opencv-python
+rembg          # optional: background removal. Pipeline degrades gracefully without it.

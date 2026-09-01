@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="411"
+     viewBox="0 0 490 411" role="img"
+     aria-label="neofetch-style info card for dipanshu@github">
+  <style>
+    text { font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace; font-size:13px; }
+    .k { fill:#39d353; font-weight:700; }
+    .v { fill:#c9d1d9; }
+    .d { fill:#7d8590; }
+    .a { fill:#58a6ff; font-weight:700; }
+    .ln { opacity:0; animation:in 340ms ease-out forwards; }
+    @keyframes in {
+      from { opacity:0; transform:translateX(-8px) }
+      to   { opacity:1; transform:translateX(0) }
+    }
+    .cursor { opacity:0; animation:fade 1ms linear 1460ms forwards,
+                                    blink 1.05s steps(1) 1460ms infinite; }
+    @keyframes fade { to { opacity:1 } }
+    @keyframes blink { 50% { opacity:0 } }
+    @media (prefers-reduced-motion: reduce) {
+      .ln { opacity:1; animation:none; }
+      .cursor { opacity:1; animation:none; }
+    }
+  </style>
+  <rect x="0.5" y="0.5" width="489" height="410" rx="10"
+        fill="#0d1117" stroke="#21262d"/>
+  <text class="ln" x="20" y="34" style="animation-delay:0ms"><tspan class="k">dipanshu</tspan><tspan class="d">@</tspan><tspan class="a">github</tspan></text><text class="ln d" x="20" y="50" style="animation-delay:70ms">---------------</text><text class="ln" x="20" y="68" style="animation-delay:140ms"><tspan class="k">OS</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Windows 11 · WSL · Android Studio</tspan></text><text class="ln" x="20" y="89" style="animation-delay:210ms"><tspan class="k">Uptime</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">since Jan 2025 on GitHub</tspan></text><text class="ln" x="20" y="110" style="animation-delay:280ms"><tspan class="k">Now</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Full-stack dev — Flutter + Go + SvelteKit</tspan></text><text class="ln" x="20" y="131" style="animation-delay:350ms"><tspan class="k">Building</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Sparq — a campus social platform</tspan></text><text class="ln" x="20" y="152" style="animation-delay:420ms"><tspan class="k">Prev</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Java / DSA · web tooling · CV experiments</tspan></text><text class="ln" x="20" y="194" style="animation-delay:490ms"><tspan class="k">Languages</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Dart · Go · Java · JavaScript · Python</tspan></text><text class="ln" x="20" y="215" style="animation-delay:560ms"><tspan class="k">Frontend</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Flutter · SvelteKit · HTML/CSS</tspan></text><text class="ln" x="20" y="236" style="animation-delay:630ms"><tspan class="k">Backend</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">Go · Node · Firebase · Redis · Postgres</tspan></text><text class="ln" x="20" y="257" style="animation-delay:700ms"><tspan class="k">Cloud</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">AWS EC2/S3 · Cloudflare Pages · GCP</tspan></text><text class="ln" x="20" y="278" style="animation-delay:770ms"><tspan class="k">Tools</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">git · docker · nginx · pm2 · ffmpeg</tspan></text><text class="ln" x="20" y="320" style="animation-delay:840ms"><tspan class="k">Focus</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">realtime chat, media pipelines, mobile UX</tspan></text><text class="ln" x="20" y="341" style="animation-delay:910ms"><tspan class="k">Learning</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">distributed systems · Rust</tspan></text><text class="ln" x="20" y="362" style="animation-delay:980ms"><tspan class="k">Contact</tspan><tspan class="d" dx="4">:</tspan><tspan class="v" x="116">github.com/dipanshupoonia95211</tspan></text><g class="ln" style="animation-delay:1050ms"><rect x="20" y="389" width="12" height="12" rx="2" fill="#161b22"/><rect x="36" y="389" width="12" height="12" rx="2" fill="#0e4429"/><rect x="52" y="389" width="12" height="12" rx="2" fill="#006d32"/><rect x="68" y="389" width="12" height="12" rx="2" fill="#26a641"/><rect x="84" y="389" width="12" height="12" rx="2" fill="#39d353"/><rect x="100" y="389" width="12" height="12" rx="2" fill="#69f0a0"/><rect x="116" y="389" width="12" height="12" rx="2" fill="#58a6ff"/><rect x="132" y="389" width="12" height="12" rx="2" fill="#c9d1d9"/></g>
+  <rect class="cursor" x="461" y="377" width="8" height="14" fill="#39d353"/>
+</svg>

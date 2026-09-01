@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+
+# raw source photo -- keep it local if you'd rather not publish the original.
+# source-photo.*
+
+# scratch
+avatar.png
+_probe.png
