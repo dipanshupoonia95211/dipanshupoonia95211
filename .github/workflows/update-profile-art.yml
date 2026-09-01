@@ -1,11 +1,17 @@
 name: Update profile art
 
+# The heatmap is not embedded in README.md right now, so the automatic triggers
+# are off -- otherwise this would commit a regenerated SVG nothing displays,
+# every single morning.
+#
+# >>> PUT THE HEATMAP BACK IN README.md?  Uncomment the two blocks below and the
+#     daily refresh resumes exactly as before. Nothing else needs changing.
 "on":
-  schedule:
-    - cron: "17 6 * * *"    # ~06:17 UTC daily
   workflow_dispatch: {}
-  push:
-    branches: [main]
+  # schedule:
+  #   - cron: "17 6 * * *"    # ~06:17 UTC daily
+  # push:
+  #   branches: [main]
 
 permissions:
   contents: write
