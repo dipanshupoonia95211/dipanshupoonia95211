@@ -152,7 +152,34 @@ def compute_stats(days: list[dict]) -> dict:
     }
 
 
+def sanity_check(stats: dict, prev: dict | None) -> str | None:
+    """Refuse to overwrite a good calendar with a broken scrape.
+
+    The failure mode this guards against: GitHub restructures the markup so the
+    <td> cells still parse but the counts all come back 0. That would silently
+    commit a blank heatmap over a good one. A real rolling window only sheds
+    about one day at a time, so a collapse to zero is always a parser bug.
+    """
+    if not prev:
+        return None
+    old_total = prev.get("total", 0)
+    if old_total >= 10 and stats["total"] == 0:
+        return f"parsed 0 contributions but the previous run had {old_total}"
+    if old_total >= 20 and stats["total"] < old_total * 0.4:
+        return f"total collapsed {old_total} -> {stats['total']}"
+    if prev.get("active_days", 0) >= 5 and stats["active_days"] == 0:
+        return "parsed 0 active days"
+    return None
+
+
 def main() -> int:
+    prev = None
+    if OUT.exists():
+        try:
+            prev = json.loads(OUT.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001 - a corrupt cache just means no baseline
+            prev = None
+
     html = fetch_html()
     try:
         days = parse_bs4(html)
@@ -166,6 +193,16 @@ def main() -> int:
         return 1
 
     stats = compute_stats(days)
+
+    problem = sanity_check(stats, prev)
+    if problem and os.environ.get("ALLOW_REGRESSION") != "1":
+        print(f"ERROR: refusing to overwrite {OUT.name} -- {problem}.\n"
+              f"       The scraper is probably broken; the committed heatmap is "
+              f"left untouched.\n"
+              f"       Set ALLOW_REGRESSION=1 if the drop is genuine.",
+              file=sys.stderr)
+        return 1
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(stats, indent=2) + "\n", encoding="utf-8")
     print(

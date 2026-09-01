@@ -21,6 +21,23 @@ No personal access token is required: the calendar comes from the public HTML
 fragment at `https://github.com/users/<username>/contributions`, the same one the
 profile page itself uses.
 
+### The regression guard
+
+Scraping undocumented HTML means GitHub can break it without warning, and the
+dangerous failure isn't a crash — it's a scrape that *looks* fine. If GitHub keeps
+the `<td>` cells but restructures the `<tool-tip>` elements, every count parses as
+0 and the cron would commit a blank heatmap over a good one.
+
+So `fetch_contributions.py` compares each scrape against the committed
+`data/contributions.json` and **exits non-zero rather than overwrite it** when the
+numbers collapse (total to zero, active days to zero, or total below 40% of the
+previous run). The workflow step fails, nothing is committed, the existing heatmap
+stays on the profile, and you get a failed-run notification.
+
+A rolling 12-month window only sheds about one day at a time, so a collapse is
+always a parser bug — never real. If a large drop ever *is* genuine, re-run with
+`ALLOW_REGRESSION=1` to bypass the check once.
+
 ## Regenerating locally
 
 ```bash
