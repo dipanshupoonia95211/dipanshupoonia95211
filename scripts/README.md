@@ -47,6 +47,16 @@ background out (`rembg`), boosts local contrast (CLAHE), and composites onto pur
 white so the background lands on the blank end of the ramp. `rembg` and
 `opencv-python` are optional — the script warns and degrades if they're missing.
 
+Two notes on `rembg`: install it as `pip install "rembg[cpu]"`, because plain
+`rembg` skips the `onnxruntime` backend and the import fails at runtime. And its
+first run downloads a **~1 GB** model (`bria-rmbg-2.0`) into `~/.rembg/models/`, so
+give it a few minutes.
+
+Background removal is genuinely load-bearing for a studio portrait — it isn't
+optional polish. This photo's vignette backdrop spans grey 91–212 while the face
+spans 100–180, so the two ranges overlap completely: no threshold, white-point
+stretch, or flood fill can separate them. Only real segmentation works.
+
 Dialling it in:
 
 | Symptom | Fix |

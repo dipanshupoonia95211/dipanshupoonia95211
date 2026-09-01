@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 
 # raw source photo -- keep it local if you'd rather not publish the original.
-# source-photo.*
+# source-photo.*   (uncomment to keep the original out of the repo)
 
 # scratch
 avatar.png
